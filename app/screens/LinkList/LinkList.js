@@ -20,7 +20,7 @@ const LinkList = ({images, navigation}) => {
         data={items}
         initialNumToRender={4}
         maxToRenderPerBatch={2}
-        keyExtractor={(item) => item.cacheId}
+        keyExtractor={(item, index) => `${item.cacheId}+${index}`}
         renderItem={({item}) => {
           const {title, link, cacheId, pagemap} = idx(item, (_) => _) || {};
           const {cse_image, imageobject, metatags} = idx(pagemap, (_) => _) || {
@@ -35,7 +35,6 @@ const LinkList = ({images, navigation}) => {
             noImageFound;
           return (
             <LinkGrid
-              key={cacheId}
               cacheId={cacheId}
               title={title}
               link={link}

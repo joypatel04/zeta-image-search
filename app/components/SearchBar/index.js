@@ -21,6 +21,7 @@ const SeachHeader = ({
       onChangeText={(text) => onChange(text)}
       value={value}
       autoFocus={autoFocus}
+      onSubmitEditing={onSearchPress}
     />
     <Button title="Search" onPress={onSearchPress} />
   </Row>
