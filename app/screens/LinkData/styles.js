@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     paddingHorizontal: scale(16),
+    marginTop: scale(44),
   },
   button: {
     justifyContent: 'center',
