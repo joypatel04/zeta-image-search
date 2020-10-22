@@ -33,9 +33,9 @@ const LinkList = ({images, navigation}) => {
             (cse_image && cse_image[0].src) ||
             (imageobject && imageobject[0].url) ||
             noImageFound;
-          console.log('image', image);
           return (
             <LinkGrid
+              key={cacheId}
               cacheId={cacheId}
               title={title}
               link={link}

@@ -35,18 +35,20 @@ class LinkData extends React.PureComponent {
 
     const Tags = metatags && (
       <>
-        <Text
-          style={styles.tagline}
-          onPress={() => {
-            Linking.canOpenURL(metatags[0]['og:url']).then(() => {
-              Linking.openURL(metatags[0]['og:url']);
-            });
-          }}>
-          {'Click on URL: '}
-          <Text style={[styles.tagline, styles.link]}>
-            {metatags[0]['og:url']}
+        {metatags[0]['og:url'] && (
+          <Text
+            style={styles.tagline}
+            onPress={() => {
+              Linking.canOpenURL(metatags[0]['og:url']).then(() => {
+                Linking.openURL(metatags[0]['og:url']);
+              });
+            }}>
+            {'Click on URL: '}
+            <Text style={[styles.tagline, styles.link]}>
+              {metatags[0]['og:url']}
+            </Text>
           </Text>
-        </Text>
+        )}
 
         {metatags[0]['analytics-track'] && (
           <Text style={styles.tagline}>
@@ -57,10 +59,14 @@ class LinkData extends React.PureComponent {
           </Text>
         )}
 
-        <Text style={styles.tagline}>
-          {'Description: '}
-          <Text style={[styles.tagline]}>{metatags[0]['og:description']}</Text>
-        </Text>
+        {metatags[0]['og:description'] && (
+          <Text style={styles.tagline}>
+            {'Description: '}
+            <Text style={[styles.tagline]}>
+              {metatags[0]['og:description']}
+            </Text>
+          </Text>
+        )}
       </>
     );
 

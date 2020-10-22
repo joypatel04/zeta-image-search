@@ -21,7 +21,6 @@ export const googleImageSearchReducer = (
     case googleImageActionTypes.googleImageSearchLoading:
       return {...state, isLoading: true, error: false};
     case googleImageActionTypes.googleImageSearchSuccess: {
-      console.log('action.payload', action.payload);
       return {
         ...state,
         isLoading: false,
@@ -65,7 +64,6 @@ export const googleImageSearchEffects = {
         const resp = await global.client.searchImages({
           querySearch,
         });
-        console.log('resp', resp);
         if (resp.status === 200) {
           dispatch(
             googleImageSearchActions.googleImageSearchSuccess(resp.data),
