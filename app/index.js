@@ -6,13 +6,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import {StatusBar} from 'react-native';
 
 import {createClient} from './packages/api';
-import {GOOGLE_API_KEY, GOOGLE_CX} from './utils/config';
 
 import AppNavigator from './navigatation/AppNavigator';
 import {store, persistor} from './redux/store';
 
 global.client = createClient({
-  baseURL: `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_API_KEY}&cx=${GOOGLE_CX}`,
+  baseURL: 'https://www.googleapis.com/customsearch/',
 });
 
 const App = () => {

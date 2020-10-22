@@ -1,3 +1,7 @@
 import {combineReducers} from 'redux';
 
-export default combineReducers({});
+import {googleImageSearchReducer} from '../../packages/services/index';
+
+export default combineReducers({
+  googleImages: googleImageSearchReducer,
+});

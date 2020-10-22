@@ -14,6 +14,7 @@ export const GOOGLE_CX = {
 
 const config = {
   GOOGLE_API_KEY: GOOGLE_API_KEY[environment],
+  GOOGLE_CX: GOOGLE_CX[environment],
 };
 
 export default config;

@@ -6,6 +6,7 @@ const colors = {
   lightGray: '#D8D8D8',
   linkColor: 'rgba(235, 235, 235, 0.80)',
   transparent: 'transparent',
+  lightShadow: '#e7e7e7',
 };
 
 export default colors;

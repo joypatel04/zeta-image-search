@@ -1,37 +1,34 @@
 import {StyleSheet} from 'react-native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
-import {lightShadow, white, black} from 'color';
+import {scale} from '../../themes/scaler';
+import {lightShadow, white, darkCharcole} from '../../themes/colors';
 
 const styles = StyleSheet.create({
   rowWrapper: {
-    width: wp('95%'),
-    height: hp('7%'),
-    marginVertical: hp('2%'),
-    borderRadius: wp('15%'),
-    backgroundColor: white,
-    shadowColor: lightShadow,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowRadius: 6,
-    shadowOpacity: 1,
+    marginTop: scale(100),
+    flexDirection: 'row',
+    alignSelf: 'center',
     alignItems: 'center',
-    paddingHorizontal: wp('2%'),
+    backgroundColor: white,
+    borderRadius: scale(24),
+    borderColor: lightShadow,
+    borderWidth: StyleSheet.hairlineWidth,
+    width: wp('90%'),
   },
-  input: {
-    fontFamily: 'Roboto',
-    fontSize: 16,
+  inputStyle: {
+    width: scale(250),
+    minHeight: scale(48),
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: scale(20),
+    fontSize: scale(16),
     fontWeight: 'normal',
     fontStyle: 'normal',
     letterSpacing: 0,
-    color: black,
-    alignItems: 'center',
-    paddingHorizontal: wp('2%'),
+    color: darkCharcole,
+    padding: 5,
   },
 });
 
