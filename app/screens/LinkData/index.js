@@ -24,27 +24,29 @@ class LinkData extends React.PureComponent {
     const {
       snippet: tagLine,
       title,
-      pagemap: {metatags},
+      pagemap: {metatags, cse_image, cse_thumbnail},
     } = idx(linkData, (_) => _) || {
       title: '',
       snippet: '',
       pagemap: {
         metatags: [],
+        cse_image: [],
+        cse_thumbnail: [],
       },
     };
 
     const Tags = metatags && (
       <>
         {metatags[0]['og:url'] && (
-          <Text
-            style={styles.tagline}
-            onPress={() => {
-              Linking.canOpenURL(metatags[0]['og:url']).then(() => {
-                Linking.openURL(metatags[0]['og:url']);
-              });
-            }}>
+          <Text style={styles.tagline}>
             {'Click on URL: '}
-            <Text style={[styles.tagline, styles.link]}>
+            <Text
+              onPress={() => {
+                Linking.canOpenURL(metatags[0]['og:url']).then(() => {
+                  Linking.openURL(metatags[0]['og:url']);
+                });
+              }}
+              style={[styles.tagline, styles.link]}>
               {metatags[0]['og:url']}
             </Text>
           </Text>
@@ -75,6 +77,53 @@ class LinkData extends React.PureComponent {
         {title && <Text style={styles.title}>{`Title: ${title}`}</Text>}
         {tagLine && <Text style={styles.tagline}>{`Snippet: ${tagLine}`}</Text>}
         {Tags}
+        {cse_image && cse_image[0].src && (
+          <Text style={styles.tagline}>
+            {'CSE Image src: '}
+            <Text
+              onPress={() => {
+                Linking.canOpenURL(cse_image[0].src).then(() => {
+                  Linking.openURL(cse_image[0].src);
+                });
+              }}
+              style={[styles.tagline, styles.link]}>
+              {cse_image[0].src}
+            </Text>
+          </Text>
+        )}
+
+        {cse_thumbnail && cse_thumbnail[0].width && (
+          <Text style={styles.tagline}>
+            {'CSE Thumbnail Width: '}
+            <Text style={[styles.tagline, styles.link]}>
+              {cse_thumbnail[0].width}
+            </Text>
+          </Text>
+        )}
+
+        {cse_thumbnail && cse_thumbnail[0].height && (
+          <Text style={styles.tagline}>
+            {'CSE Thumbnail Height: '}
+            <Text style={[styles.tagline, styles.link]}>
+              {cse_thumbnail[0].height}
+            </Text>
+          </Text>
+        )}
+
+        {cse_thumbnail && cse_thumbnail[0].src && (
+          <Text style={styles.tagline}>
+            {'CSE Thumbnail Src: '}
+            <Text
+              onPress={() => {
+                Linking.canOpenURL(cse_thumbnail[0].src).then(() => {
+                  Linking.openURL(cse_thumbnail[0].src);
+                });
+              }}
+              style={[styles.tagline, styles.link]}>
+              {cse_thumbnail[0].src}
+            </Text>
+          </Text>
+        )}
       </SafeAreaView>
     );
   }
